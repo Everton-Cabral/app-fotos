@@ -3,6 +3,11 @@ const multer = require('multer');
 const app = express();
 const upload = multer({ dest: 'uploads/' });
 
+// Rota inicial para verificar se o servidor está funcionando
+app.get('/', (req, res) => {
+  res.send('Servidor funcionando corretamente!');
+});
+
 // Rota para upload de imagens
 app.post('/upload', upload.array('images'), (req, res) => {
   // Processar as imagens recebidas aqui
